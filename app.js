@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- Animaciones Reveal ---
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealOptions = {
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollObserver.observe(el);
     });
 
+    // --- Efecto Header Scroll ---
     const header = document.querySelector('header');
     
     window.addEventListener('scroll', () => {
@@ -34,6 +36,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Menú Desplegable Móvil ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    const toggleMenu = () => {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    };
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    });
+
 });
-
-
